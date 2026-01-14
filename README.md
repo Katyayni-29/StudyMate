@@ -8,6 +8,8 @@ StudyMate is a smart web-based study planning and productivity tool designed to 
 	•	📊 Track study progress
 	•	🔄 Update or delete tasks easily
 	•	📱 Responsive UI for desktop and mobile
+
+	
 🛠️ Tech Stack
 	•	Frontend: HTML, CSS, JavaScript, React
 	•	Backend / Database: Firebase
