@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "StudyMate — Student Productivity Suite",
+  "description": "Minimal, offline, and framework‑free productivity tools: Tasks, Pomodoro, Notes, Resources, Calendar, Search, and Themes.",
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "StudyMate"
+  },
+  "offline_enabled": true
+}

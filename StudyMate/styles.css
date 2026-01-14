@@ -1,0 +1,101 @@
+/*
+  StudyMate — Minimal, modern UI
+  - Pastel light theme + dark mode
+  - Smooth transitions & subtle elevation
+*/
+:root {
+  --bg: #f7f8fb;
+  --surface: #ffffff;
+  --text: #1f2430;
+  --muted: #6b7280;
+  --primary: #6c8cff; /* pastel indigo */
+  --primary-weak: #e6ecff;
+  --accent: #5ad1c6; /* mint */
+  --danger: #ef4444;
+  --ring: rgba(108, 140, 255, 0.35);
+  --shadow: 0 6px 18px rgba(18, 22, 33, 0.06);
+}
+
+/* Dark theme */
+.dark {
+  --bg: #0f131a;
+  --surface: #161b22;
+  --text: #e6eaf2;
+  --muted: #9aa3b2;
+  --primary: #8aa0ff;
+  --primary-weak: #1e2a57;
+  --accent: #66e1d6;
+  --danger: #f87171;
+  --ring: rgba(138, 160, 255, 0.45);
+  --shadow: 0 6px 22px rgba(0, 0, 0, 0.35);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.45 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.app { width: 380px; max-width: 100vw; min-height: 520px; display: grid; grid-template-rows: auto auto 1fr auto; gap: 10px; padding: 12px; }
+.app-header { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.logo { margin:0; font-size: 18px; letter-spacing: 0.3px; }
+.header-actions { display:flex; align-items:center; gap:8px; }
+
+.search { position: relative; display:flex; align-items:center; }
+.search input {
+  width: 220px;
+  background: var(--surface);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 10px 34px 10px 12px;
+  outline: none;
+  box-shadow: var(--shadow);
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.search input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px var(--ring); }
+.search .icon-btn { position:absolute; right:6px; opacity:.6; }
+
+.tabs { display:flex; gap:6px; flex-wrap:wrap; }
+.tab { background: var(--surface); border:1px solid transparent; border-radius: 999px; padding: 8px 12px; cursor:pointer; transition: transform .1s ease, box-shadow .2s ease; box-shadow: var(--shadow); }
+.tab.active { background: var(--primary); color: #fff; }
+.tab:hover { transform: translateY(-1px); }
+
+.tab-panels { display:block; }
+.panel { display:none; }
+.panel.active { display:block; }
+
+.card { background: var(--surface); border-radius: 16px; padding: 12px; box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,0.04); }
+.center { text-align:center; }
+.right { text-align:right; }
+.small { font-size: 12px; }
+.muted { color: var(--muted); }
+
+.btn { appearance:none; border:1px solid transparent; background: var(--surface); border-radius: 12px; padding: 8px 12px; cursor:pointer; box-shadow: var(--shadow); transition: filter .2s ease, transform .1s ease; }
+.btn:hover { filter: brightness(0.98); transform: translateY(-1px); }
+.btn.primary { background: var(--primary); color: #fff; }
+.icon-btn { background: transparent; border: none; cursor: pointer; font-size: 16px; padding: 6px; }
+.chip { background: var(--primary-weak); border: 1px solid transparent; border-radius: 999px; padding: 6px 10px; cursor:pointer; }
+
+.form-grid { display:grid; grid-template-columns: 1fr 130px 120px auto; gap: 8px; align-items:center; }
+.form-grid input, .form-grid select, textarea {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 10px 12px;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.form-grid input:focus, .form-grid select:focus, textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 4px var(--ring); }
+
+.list-controls { display:flex; justify-content:flex-end; align-items:center; gap:8px; margin: 8px 0; }
+
+.list { list-style:none; padding:0; margin: 8px 0 0; display:grid; gap:8px; }
+.list li { display:grid; grid-template-columns: auto 1fr auto; gap:10px; align-items:center; background: var(--surface); border:1px solid rgba(0,0,0,0.06); border-radius: 14px; padding: 10px; box-shadow: var(--shadow); }
+.list .title { font-weight: 600; }
+.badge { padding: 2px 8px; border-radius: 999px; font-size: 11px; }
+.badge.low { background:#e6f7f3; }
+.b

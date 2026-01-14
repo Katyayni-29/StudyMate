@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudyMate</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <header class="app-header">
+      <h1 class="logo">StudyMate</h1>
+      <div class="header-actions">
+        <div class="search">
+          <input id="globalSearch" type="search" placeholder="Search tasks, notes, resources…" aria-label="Search" />
+          <button id="clearSearch" class="icon-btn" title="Clear search" aria-label="Clear search">✕</button>
+        </div>
+        <button id="themeToggle" class="btn" title="Toggle theme" aria-label="Toggle theme">🌗</button>
+      </div>
+    </header>
+
+    <nav class="tabs" role="tablist" aria-label="StudyMate sections">
+      <button class="tab active" data-tab="tasks" role="tab" aria-selected="true">Tasks</button>
+      <button class="tab" data-tab="pomodoro" role="tab">Pomodoro</button>
+      <button class="tab" data-tab="notes" role="tab">Notes</button>
+      <button class="tab" data-tab="resources" role="tab">Resources</button>
+      <button class="tab" data-tab="calendar" role="tab">Calendar</button>
+      <button class="tab" data-tab="quotes" role="tab">Quotes</button>
+    </nav>
+
+    <main class="tab-panels">
+      <!-- TASKS -->
+      <section id="panel-tasks" class="panel active" role="tabpanel">
+        <form id="taskForm" class="card form-grid" autocomplete="off">
+          <input id="taskTitle" type="text" placeholder="New task title" required />
+          <input id="taskDue" type="date" />
+          <select id="taskPriority">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
+          <button class="btn primary" type="submit">Add Task</button>
+        </form>
+
+        <div class="list-controls">
+          <label>Sort by
+            <select id="taskSort">
+              <option value="due">Due date</option>
+              <option value="priority">Priority</option>
+              <option value="created">Created</option>
+            </select>
+          </label>
+        </div>
+
+        <ul id="taskList" class="list"></ul>
+      </section>
+
+      <!-- POMODORO -->
+      <section id="panel-pomodoro" class="panel" role="tabpanel">
+        <div class="card center">
+          <div class="timer-display" id="timerDisplay">25:00</div>
+          <div class="timer-modes">
+            <button class="chip" data-mode="work">Work (25)</button>
+            <button class="chip" data-mode="short">Short Break (5)</button>
+            <button class="chip" data-mode="long">Long Break (15)</button>
+          </div>
+          <div class="timer-actions">
+            <button id="startTimer" class="btn primary">Start</button>
+            <button id="pauseTimer" class="btn">Pause</button>
+            <button id="resetTimer" class="btn">Reset</button>
+          </div>
+          <div class="timer-custom">
+            <label>Custom (minutes): <input id="customMinutes" type="number" min="1" max="180" value="25"></label>
+            <button id="applyCustom" class="btn">Apply</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- NOTES -->
+      <section id="panel-notes" class="panel" role="tabpanel">
+        <div class="card">
+          <textarea id="notesArea" placeholder="Type notes here… (autosaves)"></textarea>
+          <div class="muted small right" id="notesSaved">Last saved: —</div>
+        </div>
+      </section>
+
+      <!-- RESOURCES -->
+      <section id="panel-resources" class="panel" role="tabpanel">
+        <form id="resForm" class="card form-grid" autocomplete="off">
+          <input id="resTitle" type="text" placeholder="Resource title (e.g., DSA Cheatsheet)" required />
+          <input id="resURL" type="url" placeholder="https://example.com" required />
+          <input id="resSubject" type="text" placeholder="Subject / Topic (e.g., DSA)" />
+          <button class="btn primary" type="submit">Save</button>
+        </form>
+        <div id="resGroups" class="groups"></div>
+      </section>
+
+      <!-- CALENDAR -->
+      <section id="panel-calendar" class="panel" role="tabpanel">
+        <div class="card">
+          <div class="cal-header">
+            <button id="prevMonth" class="icon-btn" aria-label="Previous month">◀</button>
+            <div id="calTitle" class="cal-title">Month YYYY</div>
+            <button id="nextMonth" class="icon-btn" aria-label="Next month">▶</button>
+          </div>
+
+          <div class="calendar" id="calendar">
+            <!-- Rendered by JS -->
+          </div>
+
+          <div class="week-view">
+            <button id="toggleWeek" class="chip">Toggle Week View</button>
+            <div id="weekContainer" class="week hidden"><!-- Rendered by JS --></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUOTES -->
+      <section id="panel-quotes" class="panel" role="tabpanel">
+        <div class="card center">
+          <blockquote id="quoteText" class="quote">"The secret of getting ahead is getting started."</blockquote>
+          <div id="quoteAuthor" class="muted">— Mark Twain</div>
+          <button id="newQuote" class="btn">New Quote</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <span class="muted">Offline • Local storage</span>
+      <span class="muted">v1.0.0</span>
+    </footer>
+  </div>
+
+  <script src="quotes.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
